@@ -5,7 +5,22 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: default_platform" time="0.028612">
+      <testcase classname="fastlane.lanes" name="0: default_platform" time="0.014931">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="1: cd ../;flutter clean; flutter build apk --release;cd fastlane;" time="21.61484">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="2: mkdir -p ../dist/android/dev/" time="0.004408">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="3: cp ../build/app/outputs/apk/release/app-release.apk ../dist/android/dev/" time="0.019083">
         
       </testcase>
     

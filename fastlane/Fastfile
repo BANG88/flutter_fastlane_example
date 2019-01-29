@@ -27,6 +27,16 @@ platform :ios do
     # add actions here: https://docs.fastlane.tools/actions
     puts (ENV['ENV']).to_s
     puts (ENV['IOS_APP_ID']).to_s
-    puts "#{ENV['P12_PASSWORD']}"
+    puts (ENV['P12_PASSWORD']).to_s
+  end
+end
+
+platform :android do
+  desc 'Build android project'
+  lane :build do
+    sh 'cd ../;flutter clean; flutter build apk --release;cd fastlane;'
+    dist = "#{ENV['ANDROID_OUTPUT_PATH']}/#{ENV['ENV']}/"
+    sh "mkdir -p #{dist}"
+    sh "cp ../#{ENV['ANDROID_APK_PATH']} #{dist}"
   end
 end
