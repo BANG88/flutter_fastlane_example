@@ -5,22 +5,42 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: default_platform" time="0.014931">
+      <testcase classname="fastlane.lanes" name="0: default_platform" time="0.003583">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: cd ../;flutter clean; flutter build apk --release;cd fastlane;" time="21.61484">
+      <testcase classname="fastlane.lanes" name="1: Switch to android set_build_env lane" time="0.001046">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: mkdir -p ../dist/android/dev/" time="0.004408">
+      <testcase classname="fastlane.lanes" name="2: backup_file" time="0.001578">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="3: cp ../build/app/outputs/apk/release/app-release.apk ../dist/android/dev/" time="0.019083">
+      <testcase classname="fastlane.lanes" name="3: cd ../;flutter clean; flutter build apk --release;cd fastlane;" time="21.456166">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="4: mkdir -p ../dist/android/dev/" time="0.004426">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="5: cp ../build/app/outputs/apk/release/app-release.apk ../dist/android/dev/" time="0.022152">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="6: Switch to android restore_build_env lane" time="0.001331">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="7: restore_file" time="0.0022">
         
       </testcase>
     

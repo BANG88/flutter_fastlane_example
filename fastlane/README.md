@@ -15,6 +15,19 @@ Install _fastlane_ using
 or alternatively using `brew cask install fastlane`
 
 # Available Actions
+### set_build_env
+```
+fastlane set_build_env
+```
+
+### restore_build_env
+```
+fastlane restore_build_env
+```
+
+
+----
+
 ## iOS
 ### ios custom_lane
 ```

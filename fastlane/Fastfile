@@ -19,6 +19,31 @@ before_all do |_lane, _options|
   Dotenv.load(".env.#{ENV['ENV']}.secret")
 end
 
+
+lane :set_build_env do |_options|
+  backup_file(path: 'lib/env.dart')
+  environments = %(
+/// Api key
+const apiKey = '#{ENV['API_KEY']}';
+
+/// Http base url
+const baseUrl = '#{ENV['API_BASE_URL']}';
+	)
+  File.write('../lib/env.dart', environments)
+end
+
+lane :restore_build_env do
+  restore_file(path: 'lib/env.dart') if File.exist?('../lib/env.dart.back')
+end
+
+after_all do |_lane, _options|
+  restore_build_env
+end
+
+error do |_lane, _exception, _options|
+  restore_build_env
+end
+
 default_platform(:ios)
 
 platform :ios do
@@ -32,11 +57,16 @@ platform :ios do
 end
 
 platform :android do
-  desc 'Build android project'
-  lane :build do
+  lane :build_apk do
     sh 'cd ../;flutter clean; flutter build apk --release;cd fastlane;'
     dist = "#{ENV['ANDROID_OUTPUT_PATH']}/#{ENV['ENV']}/"
     sh "mkdir -p #{dist}"
     sh "cp ../#{ENV['ANDROID_APK_PATH']} #{dist}"
+  end
+
+  desc 'Build android project'
+  lane :build do
+    set_build_env
+    build_apk
   end
 end
